@@ -3,52 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cats on the Internet</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="/public/style.css">
 </head>
 <body>
     <header>
-        <img src="logo.webp" alt="Cats Logo" class="logo">
-        <h1>Cats on the Internet</h1>
-        <nav>
-            <ul>
+        <a href="index.html">
+            <img src="logo.png" alt="register_logo" class="logo">
+        </a>
+        <h1 class="site-title">Registration Page</h1>
+        <button class="nav-toggle" aria-label="Toggle Navigation">
+            ☰
+        </button>
+        <nav> 
+            <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li> 
             </ul>
-        </nav>
+        </nav>        
     </header>
-
     <main>
-        <h2>Cats in the News</h2>
-        <section class="card-container">
-            <article class="card">
-                <img src="cat1.webp" alt="A playful cat">
-                <h3>Playful Cats</h3>
-                <p>Playful cats are cute and cuddly.</p>
-                <a href="#" class="button">Read more</a>
-            </article>
-            <article class="card">
-                <img src="cat2.webp" alt="A sleeping cat">
-                <h3>Sleeping Cats</h3>
-                <p>Sleeping cats are comfortable and restful.</p>
-                <a href="#" class="button">Read more</a>
-            </article>
-            <article class="card">
-                <img src="cat3.webp" alt="A curious cat">
-                <h3>Curious Cats</h3>
-                <p>Curious cats are always on the lookout.</p>
-                <a href="#" class="button">Read more</a>
-            </article>
-        </section>
-    </main>    
+        <div class="form-container">
+            <h2 class="site-sub-title">Fill this form!</h2>
+            <form id="registration-form" action="/register" method="POST">
+                <div>
+                    <label for="name">Name <span aria-hidden="true">*</span></label>
+                    <input type="text" id="name" name="name" required aria-describedby="name-error">
+                    <div class="error-message" id="name-error" aria-live="assertive">(required)</div>
+                </div>
+                
+                <div>
+                    <label for="email">Email <span aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="yourname@example.com" required>
+                    <div class="error-message" id="email-error" aria-live="assertive">(required)</div>
+                </div>
+                
+                <div>
+                    <label for="confirm-email">Confirm Email <span aria-hidden="true">*</span></label>
+                    <input type="email" id="confirm-email" name="confirm-email" required>
+                    <div class="error-message" id="confirm-email-error" aria-live="assertive">(required)</div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="dropdown-container">
+                        <label for="tier">Subscription Tier:</label>
+                        <select id="tier" name="tier">
+                            <option value="basic">Basic</option>
+                            <option value="premium">Premium</option>
+                            <option value="enterprise">Enterprise</option>
+                        </select>
+                    </div>
 
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="wants-spam" name="wants-spam">
+                        <label for="wants-spam">I would like to receive promotional emails.</label>
+                    </div>                                       
+                </div>
+                <div>
+                    <button type="submit" class="submit-button">Submit</button>
+                </div>
+                
+            </form>
+        </div>
+    </main>
     <footer>
-        <ul>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="tos.htnl">Terms of Service</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
+        <p>&copy; 2024 Registration Form Service</p>
     </footer>
+    <script src="/public/script.js"></script>
 </body>
 </html>
